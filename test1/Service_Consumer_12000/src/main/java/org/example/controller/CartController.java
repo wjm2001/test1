@@ -3,20 +3,43 @@ package org.example.controller;
 import org.example.entity.User;
 import org.example.feign.UserFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.server.reactive.HttpHandler;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/cart")
 public class CartController {
     @Autowired
-    private UserFeignService userFeignService;
+    private RestTemplate restTemplate;
 
-    @GetMapping("/getUserById/{userId}")
-    public User getUserById(@PathVariable Integer userId){
-        return userFeignService.getUserById(userId);
+    @GetMapping("/get")
+    public User get(){
+        User user = restTemplate.getForObject("http://localhost:11000/user/get", User.class);
+        return user;
+    }
+
+    @PostMapping("/post")
+    public User post(){
+        User user1 = new User(5, "小李", "123");
+        User user = restTemplate.postForObject("http://localhost:11000/user/post",user1, User.class);
+        return user;
+    }
+
+    @PutMapping("/put/{userId}")
+    public String put(@PathVariable Integer userId){
+        User user1 = new User(6, "小红", "123");
+        restTemplate.put("http://localhost:11000/user/put/"+userId,user1);
+        return "修改成功";
+    }
+
+    @DeleteMapping("/delete/{userId}")
+    public String delete(@PathVariable Integer userId){
+        restTemplate.delete("http://localhost:11000/user/delete/"+userId);
+        return "删除成功";
     }
 }

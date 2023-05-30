@@ -21,11 +21,12 @@
     </build>
     <modules>
         <module>Service_Provider_11000</module>
-        <module>Service_Consumer_12000</module>
         <module>Service_Provider_11001</module>
         <module>Eureka_Server_13000</module>
         <module>Eureka_Server_13001</module>
+        <module>Service_Consumer_12000</module>
         <module>Service_Consumer_12001</module>
+        <module>Service_Provider_11002</module>
     </modules>
     <packaging>pom</packaging>
 

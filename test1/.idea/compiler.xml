@@ -6,13 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Service_Provider_11001" />
-        <module name="Service_Provider_11000" />
         <module name="Service_Consumer_12000" />
         <module name="Service_Consumer_12001" />
         <module name="Eureka_Server_13000" />
         <module name="Eureka_Server_13001" />
+        <module name="Service_Provider_11001" />
+        <module name="Service_Provider_11000" />
+        <module name="Service_Provider_11002" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Zookeeper_Server_14000" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>
