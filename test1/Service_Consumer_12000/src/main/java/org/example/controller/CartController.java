@@ -1,11 +1,7 @@
 package org.example.controller;
 
 import org.example.entity.User;
-import org.example.feign.UserFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.server.reactive.HttpHandler;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,10 +13,15 @@ public class CartController {
     @Autowired
     private RestTemplate restTemplate;
 
+//    @GetMapping("/get")
+//    public User get(){
+//        User user = restTemplate.getForObject("http://localhost:11000/user/get", User.class);
+//        return user;
+//    }
+
     @GetMapping("/get")
-    public User get(){
-        User user = restTemplate.getForObject("http://localhost:11000/user/get", User.class);
-        return user;
+    public String get(){
+        return "这是端口为12000的微服务";
     }
 
     @PostMapping("/post")

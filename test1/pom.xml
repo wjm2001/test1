@@ -27,6 +27,7 @@
         <module>Service_Consumer_12000</module>
         <module>Service_Consumer_12001</module>
         <module>Service_Provider_11002</module>
+        <module>Gateway_Server_14000</module>
     </modules>
     <packaging>pom</packaging>
 
